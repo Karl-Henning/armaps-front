@@ -1,0 +1,538 @@
+<!-- Copyright © 2020 Karl Henning -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>AR</title>
+  <link rel="stylesheet" href="css/master.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+</head>
+
+<body>
+  <div id="oldstuff">
+    <video id="video-stream" autoplay playsinline muted></video>
+    <div id="terrain">
+      <div id="terrain_map"></div>
+    </div>
+    <div id="objects"></div>
+    <span id="cross">+</span>
+
+    <select class="btn-user" id="videoSource"></select>
+
+    <div id="location">
+      <div id="map"></div>
+      <span id="north">N</span>
+      <span id="east">E</span>
+      <span id="south">S</span>
+      <span id="west">W</span>
+    </div>
+    <div id="user">
+      <div class="triangle-down"></div>
+      <div id="dot"></div>
+    </div>
+    <input type="range" min="0" max="10" value="3" class="slider" step="1">
+    <span id="entf"></span>
+
+    <div id="setttings">
+      <img src="img/starting-block-rocket-icon-01.png" id="rocket">
+      <a href="addObject.html">
+        <img src="img/icons8-plus-256.png" id="plus">
+      </a>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" id="closebtn">&times;</a>
+      <div id="sidenav-content">
+        <h2>Place Types</h2>
+        <input id="myInput" placeholder="Search..">
+        <ul class="scroll">
+          <li class="container">
+            <span class="names">Schiefe Ebene</span>
+            <input type="checkbox" name="projekt-3">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Stephaneum</span>
+            <input type="checkbox" name="projekt-2">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Stolpersteine</span>
+            <input type="checkbox" name="stolpersteine">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Accounting</span>
+            <input type="checkbox" name="accounting">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Airport</span>
+            <input type="checkbox" name="airport">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Amusement Park</span>
+            <input type="checkbox" name="amusement_park">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Aquarium</span>
+            <input type="checkbox" name="aquarium">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Art Gallery</span>
+            <input type="checkbox" name="art_gallery">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">ATM</span>
+            <input type="checkbox" name="atm">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Bakery</span>
+            <input type="checkbox" name="bakery">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Bank</span>
+            <input type="checkbox" name="bank">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Bar</span>
+            <input type="checkbox" name="bar">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Beauty Salon</span>
+            <input type="checkbox" name="beauty_salon">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Bicycle Store</span>
+            <input type="checkbox" name="bicycle_store">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Book Store</span>
+            <input type="checkbox" name="book_store">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Bowling Alley</span>
+            <input type="checkbox" name="bowling_alley">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Bus Station</span>
+            <input type="checkbox" name="bus_station">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Cafe</span>
+            <input type="checkbox" name="cafe">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Campground</span>
+            <input type="checkbox" name="campground">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Car Dealer</span>
+            <input type="checkbox" name="car_dealer">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Car Rental</span>
+            <input type="checkbox" name="car_rental">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Car Repair</span>
+            <input type="checkbox" name="car_repair">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Car Wash</span>
+            <input type="checkbox" name="car_wash">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Casino</span>
+            <input type="checkbox" name="casino">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Cemetery</span>
+            <input type="checkbox" name="cemetery">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Church</span>
+            <input type="checkbox" name="church">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">City Hall</span>
+            <input type="checkbox" name="city_hall">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Clothing Store</span>
+            <input type="checkbox" name="clothing_store">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Convenience Store</span>
+            <input type="checkbox" name="convenience_store">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Courthouse</span>
+            <input type="checkbox" name="courthouse">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Dentist</span>
+            <input type="checkbox" name="dentist">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Department Store</span>
+            <input type="checkbox" name="department_store">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Doctor</span>
+            <input type="checkbox" name="doctor">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Electrician</span>
+            <input type="checkbox" name="electrician">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Electronics Store</span>
+            <input type="checkbox" name="electronics_store">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Embassy</span>
+            <input type="checkbox" name="embassy">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Fire Station</span>
+            <input type="checkbox" name="fire_station">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Florist</span>
+            <input type="checkbox" name="florist">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Funeral Home</span>
+            <input type="checkbox" name="funeral_home">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Furniture Store</span>
+            <input type="checkbox" name="furniture_store">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Gas Station</span>
+            <input type="checkbox" name="gas_station">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Gym</span>
+            <input type="checkbox" name="gym">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Hair Care</span>
+            <input type="checkbox" name="hair_care">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Hardware Store</span>
+            <input type="checkbox" name="hardware_store">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Hindu Temple</span>
+            <input type="checkbox" name="hindu_temple">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Home Goods Store</span>
+            <input type="checkbox" name="home_goods_store">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Hospital</span>
+            <input type="checkbox" name="hospital">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Insurance Agency</span>
+            <input type="checkbox" name="insurance_agency">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Jewelry Store</span>
+            <input type="checkbox" name="jewelry_store">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Laundry</span>
+            <input type="checkbox" name="laundry">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Lawyer</span>
+            <input type="checkbox" name="lawyer">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Library</span>
+            <input type="checkbox" name="library">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Liquor Store</span>
+            <input type="checkbox" name="liquor_store">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Local Government Office</span>
+            <input type="checkbox" name="local_government_office">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Locksmith</span>
+            <input type="checkbox" name="locksmith">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Lodging</span>
+            <input type="checkbox" name="lodging">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Meal Delivery</span>
+            <input type="checkbox" name="meal_delivery">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Meal Takeaway</span>
+            <input type="checkbox" name="meal_takeaway">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Mosque</span>
+            <input type="checkbox" name="mosque">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Movie Rental</span>
+            <input type="checkbox" name="movie_rental">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Movie Theater</span>
+            <input type="checkbox" name="movie_theater">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Moving Company</span>
+            <input type="checkbox" name="moving_company">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Museum</span>
+            <input type="checkbox" name="museum">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Night Club</span>
+            <input type="checkbox" name="night_club">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Painter</span>
+            <input type="checkbox" name="painter">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Park</span>
+            <input type="checkbox" name="park">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Parking</span>
+            <input type="checkbox" name="parking">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Pet Store</span>
+            <input type="checkbox" name="pet_store">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Pharmacy</span>
+            <input type="checkbox" name="pharmacy">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Physiotherapist</span>
+            <input type="checkbox" name="physiotherapist">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Plumber</span>
+            <input type="checkbox" name="plumber">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Police</span>
+            <input type="checkbox" name="police">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Post Office</span>
+            <input type="checkbox" name="post_office">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Real Estate Agency</span>
+            <input type="checkbox" name="real_estate_agency">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Restaurant</span>
+            <input type="checkbox" name="restaurant">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Roofing Contractor</span>
+            <input type="checkbox" name="roofing_contractor">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Rv Park</span>
+            <input type="checkbox" name="rv_park">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">School</span>
+            <input type="checkbox" name="school">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Shoe Store</span>
+            <input type="checkbox" name="shoe_store">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Shopping Mall</span>
+            <input type="checkbox" name="shopping_mall">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Spa</span>
+            <input type="checkbox" name="spa">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Stadium</span>
+            <input type="checkbox" name="stadium">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Storage</span>
+            <input type="checkbox" name="storage">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Store</span>
+            <input type="checkbox" name="store">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Subway Station</span>
+            <input type="checkbox" name="subway_station">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Synagogue</span>
+            <input type="checkbox" name="synagogue">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Taxi Stand</span>
+            <input type="checkbox" name="taxi_stand">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Train Station</span>
+            <input type="checkbox" name="train_station">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Transit Station</span>
+            <input type="checkbox" name="transit_station">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Travel Agency</span>
+            <input type="checkbox" name="travel_agency">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">University</span>
+            <input type="checkbox" name="university">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Veterinary Care</span>
+            <input type="checkbox" name="veterinary_care">
+            <span class="checkmark"></span>
+          </li>
+          <li class="container">
+            <span class="names">Zoo</span>
+            <input type="checkbox" name="zoo">
+            <span class="checkmark"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <span id="openNav">&#9776;</span>
+
+  </div>
+
+      <div id="info" style="top:100%">
+        <a href="javascript:void(0)" id="closebtn">&times;</a>
+        <div id="dframe"></div>
+      </div>
+
+  <!-- JS files -->
+  <script src="js/sidenav.js" charset="utf-8"></script>
+  <script src="js/initial.js" charset="utf-8"></script>
+  <script src="js/objects.js" charset="utf-8"></script>
+  <script src="js/video.js" charset="utf-8"></script>
+  <script src="js/main.js" charset="utf-8"></script>
+  <!-- JS files end -->
+
+</body>
+
+</html>

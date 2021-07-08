@@ -1,0 +1,182 @@
+<!-- Copyright © 2020 Karl Henning -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+
+    <style>
+        .form-label-group {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .form-label-group > input,
+        .form-label-group > label {
+            height: 3.125rem;
+            padding: .75rem;
+        }
+
+        .form-label-group > label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            margin-bottom: 0; /* Override default `<label>` margin */
+            line-height: 1.5;
+            color: #495057;
+            pointer-events: none;
+            cursor: text; /* Match the input under the label */
+            border: 1px solid transparent;
+            border-radius: .25rem;
+            transition: all .1s ease-in-out;
+        }
+
+        .form-label-group input::-webkit-input-placeholder {
+            color: transparent;
+        }
+
+        .form-label-group input:-ms-input-placeholder {
+            color: transparent;
+        }
+
+        .form-label-group input::-ms-input-placeholder {
+            color: transparent;
+        }
+
+        .form-label-group input::-moz-placeholder {
+            color: transparent;
+        }
+
+        .form-label-group input::placeholder {
+            color: transparent;
+        }
+
+        .form-label-group input:not(:placeholder-shown) {
+            padding-top: 1.25rem;
+            padding-bottom: .25rem;
+        }
+
+        .form-label-group input:not(:placeholder-shown) ~ label {
+            padding-top: .25rem;
+            padding-bottom: .25rem;
+            font-size: 12px;
+            color: #777;
+        }v
+    </style>
+</head>
+<body  class="text-center">
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <a class="my-0 mr-md-auto" href="app">
+        <button type="button" class="btn btn-primary">Zurück</button>
+    </a>
+</div>
+<form class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+            <div class="form-label-group">
+                <input value="db-134680" type="id" id="id" class="form-control" placeholder="ID" required autofocus>
+                <label for="id">ID</label>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+            <div class="form-label-group">
+                <input value="51.7591" type="longitude" id="longitude" class="form-control" placeholder="longitude" required autofocus>
+                <label for="longitude">longitude</label>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+            <div class="form-label-group">
+                <input value="11.4619" type="latitude" id="latitude" class="form-control" placeholder="latitude" required autofocus>
+                <label for="latitude">latitude</label>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+            <div class="form-label-group">
+                <input value="127.1" type="altitude" id="altitude" class="form-control" placeholder="altitude" required autofocus>
+                <label for="altitude">altitude</label>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+            <div class="form-label-group">
+                <input value="Bahnhof" type="name" id="name" class="form-control" placeholder="name" required autofocus>
+                <label for="name">name</label>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+            <div class="form-label-group">
+                <input value=
+                               "{'address': 'Breite Straße 15', 'link': {'house': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Aschersleben_Breite_Stra%C3%9Fe_15_%2801%29.jpg/150px-Aschersleben_Breite_Stra%C3%9Fe_15_%2801%29.jpg'}, 'extra': [{'name': 'Adolf Conitzer', 'lived': '1866–1943', 'biography': 'Adolf Conitzer stammte aus Jeschewo. Gemeinsam mit Arthur Grünbaum betrieb er in Aschersleben ein Kaufhaus. 1942 wurde er ins Ghetto Theresienstadt deportiert und starb dort am 1. Februar 1943.', 'date': '19.\xa0Nov. 2009', 'link': {'stone': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Aschersleben_Breite_Stra%C3%9Fe_12_Stolperstein_Conitzer%2C_Adolf.jpg/160px-Aschersleben_Breite_Stra%C3%9Fe_12_Stolperstein_Conitzer%2C_Adolf.jpg'}}, {'name': 'Arthur Grünbaum', 'lived': '1872–1938', 'biography': 'Arthur Grünbaum betrieb gemeinsam mit Adolf Conitzer in Aschersleben ein Kaufhaus. Er kam 1938 in Berlin ums Leben.', 'date': '19.\xa0Nov. 2009', 'link': {'stone': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Aschersleben_Breite_Stra%C3%9Fe_12_Stolperstein_Gr%C3%BCnbaum%2C_Arthur.jpg/160px-Aschersleben_Breite_Stra%C3%9Fe_12_Stolperstein_Gr%C3%BCnbaum%2C_Arthur.jpg'}}]}"
+                       type="info" id="info" class="form-control" placeholder="info" required autofocus>
+                <label for="info">info</label>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+            <div class="form-label-group">
+                <button onclick="addObject(this.form)" type="button" class="btn btn-lg btn-primary btn-block">Hinzufügen</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<!-- Optional JavaScript -->
+
+<script>
+    function addObject(form){
+        let data = {
+            id: document.getElementById("id").value,
+            longitude: document.getElementById("longitude").value,
+            latitude: document.getElementById("latitude").value,
+            altitude: document.getElementById("altitude").value,
+            name: document.getElementById("name").value,
+            info: document.getElementById("info").value
+
+        };
+
+        $.ajax({
+                method: 'POST',
+                url: 'https://ar.stephaneum.de/api/locations/update',
+                headers: {
+                    'Access-Control-Allow-Origin' : '*',
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                data: JSON.stringify(data),
+                success: function (response) {
+                    console.log(response);
+                    alert(response.success)
+                }
+            }
+        );
+
+    }
+</script>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</body>
+</html>

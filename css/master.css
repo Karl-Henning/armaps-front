@@ -1,0 +1,290 @@
+/*
+  Copyright © 2020 Karl Henning
+*/
+
+@import "video.css";
+@import "objects.css";
+@import "sidenav.css";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #oldstuff {
+  width: 100%;
+  height: 100%;
+}
+
+#oldstuff {
+  position: fixed;
+}
+
+#cross {
+  position: fixed;
+  z-index: 1; /* all ui */
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+#info {
+  position: absolute;
+  display: none;
+  z-index: 3;
+  min-height: 100%;
+  width: 80%;
+  transition: 0.3s;
+  background-color: rgb(251,251,251);
+  padding: 10%;
+  opacity: 0.95;
+}
+
+#rocket, #plus {
+  position: absolute;
+  z-index: 3;
+  width: 10vw;
+  height: 10vw;
+  transform: translate(50%, -50%);
+}
+
+#rocket {
+  right: 6vw;
+  top: 6vw;
+  border-style: solid;
+  border-radius: 50%;
+  border-color: rgba(0, 191, 255, 0.5);
+  transition: all 0.5s;
+  border-width: 0;
+}
+
+#plus {
+  top: 18vw;
+  right: 6vw;
+}
+
+#setttings {
+  position: fixed;
+  z-index: 3;
+  width: 12vw;
+  height: 24vw;
+  top: 5vw;
+  right: 5vw;
+  background-color: whitesmoke;
+  border-radius: 6vw;
+}
+
+#location, #user {
+  height: 30vw;
+  width: 30vw;
+  position: absolute;
+  bottom: 6vw;
+  right: 12vw;
+  border-style: solid;
+  border-width: 0.3vw;
+  border-radius: 50%;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  z-index: 0;
+}
+#map .gm-style > div:not(:first-child) { display: none; }
+
+#north, #east, #south, #west, #dot {
+  transform: translate(-50%,-50%);
+  position: absolute;
+  font-size: 4vw;
+}
+
+#north {
+  top: 7%;
+  left: 50%;
+}
+#east {
+  top: 50%;
+  left: 93%;
+}
+#south {
+  top: 93%;
+  left: 50%;
+}
+#west {
+  top: 50%;
+  left: 7%;
+}
+
+#user {
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.triangle-down {
+  transform: translate(-50%,-100%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 127px solid transparent;
+  border-right: 127px solid transparent;
+  border-top: 200px solid rgba(173, 216, 230, 0.3);
+}
+
+#dot {
+  top: 50%;
+  left: 50%;
+  width: 2vw;
+  height: 2vw;
+  background: rgb(178,34,34);
+  border-style: solid;
+  border-radius: 50%;
+  border-width: 0.5vw;
+  border-color: rgba(211,211,211,0.8);
+}
+
+.slider {
+  position: absolute;
+  transform: translate(50%,50%) rotate(90deg);
+  bottom: 21vw;
+  right: 5vw;
+  width: 35%;
+  height: 15px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+}
+
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+#entf {
+  position: absolute;
+  right: 9vw;
+  bottom: 33vw;
+  font-size: 3vw;
+  color: white;
+  width: 8vw;
+  text-align: center;
+}
+
+#dframe {
+  background-color: rgb(240,240,240);
+  padding: 25px;
+  margin-top: 50px;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: initial;
+}
+
+#dframe h1 {
+  font-size: 45px;
+  text-align: center;
+}
+
+#dframe h2 {
+  font-size: 40px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+#dframe p {
+  font-size: 35px;
+  color: gray;
+  text-align: center;
+}
+
+#dframe a {
+  font-size: 35px;
+  color: gray;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+}
+
+#dframe img {
+  width: 70%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#orientation_m {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  z-index: 50;
+}
+#orientation_m span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: gray;
+}
+
+#terrain, #terrain_map {
+  transform: translate(50%, -50%);
+  border-radius: 50%;
+  height: 1472px;
+  width: 1472px;
+  display: block;
+}
+#terrain {
+  position: absolute;
+}
+
+#terrain_map {
+  transition: opacity 1s;
+  opacity: 0;
+  position: relative;
+  top: 50%;
+  right: 50%;
+}
+
+.btn-user {
+  position: fixed;
+  left: 10%;
+}
+#videoSource {
+  bottom: 10%;
+}
+#motion{
+  bottom: 5%;
+}

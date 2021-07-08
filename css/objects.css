@@ -1,0 +1,100 @@
+/*
+  Copyright © 2020 Karl Henning
+*/
+
+:root {
+  --main-size: 11vw;
+}
+
+/* For portrait, we want the tool bar on top */
+
+@media screen and (orientation: portrait) {
+  :root {
+    --main-size: 11vw;
+  }
+  .symbol:hover {
+    width: 50vw;
+  }
+}
+
+/* For landscape, we want the tool bar stick on the left */
+
+@media screen and (orientation: landscape) {
+  :root {
+    --main-size: 11vh;
+  }
+  .symbol:hover {
+    width: 50vh;
+  }
+}
+
+.stream {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: lightgray;
+}
+
+#objects {
+  position: relative;
+  z-index: 0;
+}
+
+.symbol {
+  background-color: black;
+  border-radius: 5.5vw;
+  position: absolute;
+  transition: width 0.2s;
+  opacity: 0.9;
+  /*
+  width: var(--main-size);
+  */
+  height: var(--main-size);
+  transform-origin: calc(100% - var(--main-size)/2) 50%;
+}
+
+.icon {
+  position: absolute;
+  right: calc(var(--main-size)/2);
+  top: calc(var(--main-size)/2);
+  transform: translate(50%, -50%);
+  width: calc(var(--main-size)*0.89);
+  height: calc(var(--main-size)*0.89);
+  border-radius: 50%;
+  background-color: orange;
+}
+
+.symbol div img {
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: calc(var(--main-size)/2);
+}
+
+.name, .data {
+  position: absolute;
+  font-family: "Open Sans";
+  font-weight: 400;
+  left: calc(var(--main-size)*0.3);
+  transform: translate(0%, -50%);
+  right: calc(var(--main-size)*1.1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name {
+  font-size: calc(var(--main-size)*0.28);
+  color: white;
+  top: 35%;
+}
+
+.data {
+  top: 68%;
+  color: rgb(232,232,232);
+  font-size: calc(var(--main-size)*0.2);
+}

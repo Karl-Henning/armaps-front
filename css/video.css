@@ -1,0 +1,12 @@
+/*
+  Copyright © 2020 Karl Henning
+*/
+
+#video-stream {
+  z-index: -1;
+  height: calc(100vw*1.78);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+}
